@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0b0e11;
+  --color-bg-card: #1e2329;
+  --color-success: #0ecb81;
+  --color-danger: #f6465d;
+  --color-warning: #fcd535;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #848e9c;
+  
+  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+}
+
+.neon-green {
+  text-shadow: 0 0 10px #0ecb81, 0 0 20px #0ecb81, 0 0 30px #0ecb81;
+}
+
+.neon-red {
+  text-shadow: 0 0 10px #f6465d, 0 0 20px #f6465d;
+}
+
+.neon-yellow {
+  text-shadow: 0 0 10px #fcd535, 0 0 20px #fcd535;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  border: 2px solid #3a4149 !important;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(14, 203, 129, 0.2);
+  border-color: rgba(14, 203, 129, 0.4) !important;
+}
+
+.btn-transition {
+  transition: all 0.2s ease;
+}
+
+.btn-transition:hover {
+  transform: scale(1.05);
+}
+
+.btn-transition:active {
+  transform: scale(0.98);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.font-mono {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0e11;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2329;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2e36;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-hover {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.card-hover:hover {
+  border-color: rgba(14, 203, 129, 0.3);
+}
+
+button:focus {
+  outline: 2px solid rgba(14, 203, 129, 0.5);
+  outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.font-mono {
+  transition: color 0.2s ease;
+}
+
+header img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+header img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(14, 203, 129, 0.4);
+}
+
+body {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(14, 203, 129, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(252, 213, 53, 0.03) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+.card-hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(58, 65, 73, 0.8);
+}
+
+.card-hover:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(14, 203, 129, 0.3), 0 0 20px rgba(14, 203, 129, 0.15);
+}
+
+.btn-transition {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-transition::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-transition:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+footer {
+  backdrop-filter: blur(10px);
+  background: rgba(30, 35, 41, 0.95);
+}
+
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}

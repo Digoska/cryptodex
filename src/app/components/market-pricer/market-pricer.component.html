@@ -1,0 +1,33 @@
+<div class="card-hover bg-[#1e2329] rounded-xl p-6 border-2 border-[#3a4149] shadow-2xl shadow-black/50 w-full max-w-sm">
+  <div class="mb-4">
+    <h3 class="text-lg font-semibold text-white mb-1">Average Entry Calculator</h3>
+    <p class="text-xs text-[#848e9c]">(Komponent: Delič)</p>
+  </div>
+  
+  <div class="flex flex-col gap-4">
+    <button
+      (click)="onTotalCostClick()"
+      class="btn-transition px-6 py-3 rounded-lg border-2 border-[#0ecb81] text-[#0ecb81] font-medium hover:bg-[#0ecb81] hover:text-[#0b0e11] transition-all duration-200"
+    >
+      Total Cost
+    </button>
+    
+    <button
+      (click)="onCoinAmountClick()"
+      class="btn-transition px-6 py-3 rounded-lg border-2 border-[#fcd535] text-[#fcd535] font-medium hover:bg-[#fcd535] hover:text-[#0b0e11] transition-all duration-200"
+    >
+      Coin Amount
+    </button>
+    
+    <div class="mt-4 pt-4 border-t border-[#2a2e36]">
+      <p class="text-sm text-[#848e9c] mb-2">Avg. Entry Price</p>
+      <p class="text-3xl font-mono font-bold text-[#0ecb81] neon-green">
+        {{ result() | number:'1.2-2' }}
+      </p>
+      @if (clicksB() === 0) {
+        <p class="text-xs text-[#f6465d] mt-1">⚠ Division by zero prevented</p>
+      }
+    </div>
+  </div>
+</div>
+

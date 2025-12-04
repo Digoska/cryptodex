@@ -1,0 +1,33 @@
+<div class="min-h-screen bg-[#0b0e11] flex flex-col">
+  <header class="bg-[#1e2329] border-b border-[#2a2e36] px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center gap-4">
+      <img src="logo.jpg" alt="FutureTrade DEX Logo" class="w-12 h-12 rounded-full object-cover border-2 border-[#0ecb81]">
+      <h1 class="text-2xl font-bold text-white font-mono">
+        FutureTrade DEX
+      </h1>
+    </div>
+  </header>
+
+  <main class="flex-1 px-6 py-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="flex justify-center">
+          <app-wallet-manager></app-wallet-manager>
+        </div>
+        <div class="flex justify-center">
+          <app-pnl-tracker></app-pnl-tracker>
+        </div>
+        <div class="flex justify-center">
+          <app-position-sizer></app-position-sizer>
+        </div>
+        <div class="flex justify-center">
+          <app-market-pricer></app-market-pricer>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mt-auto">
+    <app-network-status></app-network-status>
+  </footer>
+</div>
