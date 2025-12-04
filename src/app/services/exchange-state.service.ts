@@ -11,7 +11,8 @@ export interface ComponentResult {
 export class ExchangeStateService {
   private totalClicks = signal<number>(0);
   private componentResults = signal<Map<string, number>>(new Map());
-  private clickTimestamps = signal<number[]>([]);
+  private lastClickTime = signal<number | null>(null);
+  private lastLatency = signal<number>(0);
   
   readonly globalVolume = computed(() => {
     let sum = 0;
@@ -22,17 +23,7 @@ export class ExchangeStateService {
   });
   
   readonly networkLatency = computed(() => {
-    const timestamps = this.clickTimestamps();
-    if (timestamps.length < 2) {
-      return 0;
-    }
-    
-    let totalDiff = 0;
-    for (let i = 1; i < timestamps.length; i++) {
-      totalDiff += timestamps[i] - timestamps[i - 1];
-    }
-    
-    return Math.round(totalDiff / (timestamps.length - 1));
+    return this.lastLatency();
   });
   
   getTotalClicks() {
@@ -41,7 +32,7 @@ export class ExchangeStateService {
   
   incrementClickCount(): void {
     this.totalClicks.update(count => count + 1);
-    this.recordClickTimestamp();
+    this.handleTimer();
   }
   
   updateComponentResult(componentId: string, value: number): void {
@@ -50,12 +41,18 @@ export class ExchangeStateService {
     this.componentResults.set(currentResults);
   }
   
-  private recordClickTimestamp(): void {
+  private handleTimer(): void {
+    const lastTime = this.lastClickTime();
     const now = Date.now();
-    this.clickTimestamps.update(timestamps => {
-      const updated = [...timestamps, now];
-      return updated.slice(-100);
-    });
+    
+    if (lastTime === null) {
+      this.lastClickTime.set(now);
+      this.lastLatency.set(0);
+    } else {
+      const latency = now - lastTime;
+      this.lastLatency.set(latency);
+      this.lastClickTime.set(now);
+    }
   }
 }
 

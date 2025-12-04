@@ -5,23 +5,7 @@ Professional crypto futures trading platform simulator built with Angular.
 **Projekt na Skriptovacie Jazyky**  
 Autor: Digo-Nikodem Zelenak
 
-Jednoduchý simulátor crypto marketu s basic komponentami.
-
-## Inštalácia
-
-```bash
-npm install
-```
-
-## Spustenie
-
-```bash
-npm start
-```
-
-Otvorte `http://localhost:4200/`
-
-## Build
+Pojekt na Skriptovacie Jazyky done by Digo-Nikodem Zelenak
 
 ```bash
 npm run build
