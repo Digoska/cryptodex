@@ -2,29 +2,24 @@
 
 Professional crypto futures trading platform simulator built with Angular.
 
-## Features
+**Projekt na Skriptovacie Jazyky**  
+Autor: Digo-Nikodem Zelenak
 
-- **Assets Management** - Deposit and airdrop tracking
-- **Realized PnL** - Profit and loss calculations
-- **Leverage Adjustment** - Position sizing with margin and leverage
-- **Average Entry Calculator** - Price calculation tools
-- **Network Status** - Real-time trading statistics
+Jednoduchý simulátor crypto marketu s basic komponentami.
 
-## Tech Stack
-
-- Angular 21
-- TypeScript
-- TailwindCSS v4
-- Signals for reactive state management
-
-## Development
+## Inštalácia
 
 ```bash
 npm install
+```
+
+## Spustenie
+
+```bash
 npm start
 ```
 
-Navigate to `http://localhost:4200/`
+Otvorte `http://localhost:4200/`
 
 ## Build
 
@@ -32,16 +27,16 @@ Navigate to `http://localhost:4200/`
 npm run build
 ```
 
-## Project Structure
+## Štruktúra projektu
 
 ```
 src/app/
 ├── components/
-│   ├── wallet-manager/
-│   ├── pnl-tracker/
-│   ├── position-sizer/
-│   ├── market-pricer/
-│   └── network-status/
+│   ├── wallet-manager/      (Sčítač)
+│   ├── pnl-tracker/         (Odčítač)
+│   ├── position-sizer/      (Násobič)
+│   ├── market-pricer/       (Delič)
+│   └── network-status/      (Info)
 ├── services/
 │   └── exchange-state.service.ts
 └── app.component.ts
